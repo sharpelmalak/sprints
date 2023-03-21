@@ -1,0 +1,5 @@
+1-Customer
+2-Sponcer
+3-Merchants
+4-Users
+5-Team(Employees)
