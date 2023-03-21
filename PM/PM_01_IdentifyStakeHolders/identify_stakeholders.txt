@@ -1,5 +1,8 @@
-1-Customer
-2-Sponcer
-3-Merchants
-4-Users
-5-Team(Employees)
+1 - Business Owner
+2 - Customer 
+3 - Sponcer
+4 - Merchants
+5 - Application Users
+6 - Team( Employees )
+7 - Competitors
+8 - Banks
