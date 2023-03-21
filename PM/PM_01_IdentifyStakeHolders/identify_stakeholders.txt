@@ -1,6 +1,6 @@
 1 - Business Owner
 2 - Customer 
-3 - Sponcer
+3 - Sponsor
 4 - Merchants
 5 - Application Users
 6 - Team( Employees )
