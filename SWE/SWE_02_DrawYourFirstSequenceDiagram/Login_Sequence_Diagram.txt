@@ -1,0 +1,36 @@
+title Login Sequence Diagram
+
+
+actor User
+participant Front End
+database Back End
+
+User->Front End:Visit
+activate Front End
+User<--Front End:Display Login Page
+User->Front End:User Enters Credentials
+Front End->Back End:Check Credentials
+activate Back End
+
+alt  Right Credentials 
+Front End<--Back End:Credentials is matched
+deactivate Back End
+User<--Front End:loged In
+
+
+else  Wrong Credentials & Trials < 3 
+note over Back End:Trials < 3
+activate Back End
+Back End<-Back End :Trials plus one
+Front End<--Back End:Credentials isn't matched
+deactivate Back End
+User<--Front End:Wrong! Check Your Credentials
+else  Trials is equal 3 
+note over Back End:Trials = 3
+activate Back End
+
+Front End<--Back End:Locked Account
+deactivate Back End
+User<--Front End:Your Account is Locked
+end
+deactivate Front End
