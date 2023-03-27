@@ -77,11 +77,12 @@ void setPlayerConfig(uint8_t *configArray){
 
   uint8_t i,status;
   for(i=0;i<2;i++){
-    printf("PLEASE PLAYER %d CHOOSE BETWEEN 'X' OR 'O' SYMBOLS... \n",i+1);
+     printf("\n\n\t\t\tWelcome To X-O Game");
+    printf("\n\n\tPLEASE PLAYER %d CHOOSE BETWEEN 'X' OR 'O' SYMBOLS : ",i+1);
     // check on symbol
     status = getPlayerSymbol(i+1,configArray);
     if(status){
-        printf("ERROR Wrong character or you choose same symbol\n");
+        printf("\n\n\tERROR Wrong character or you choose same symbol\n");
         i--; // decrement loop by one and ask again for the right symbol
     }
 
@@ -101,9 +102,9 @@ int pos;
 drawBoard(board);
 printf("\n\tPlayer %d Enter The Position:  ",playerNumber);
 scanf(" %d",&pos);
-// check if user choose reserved position
-while(board[pos-1] == 'x' || board[pos-1] == 'o'){
-    printf("\n\tYou select a reserved position \n");
+// check if user choose reserved position or wrong position
+while(board[pos-1] == 'x' || board[pos-1] == 'o' || pos<1 || pos>9){
+    printf("\n\tYou select a reserved or wrong position \n");
     printf("\n\tPlayer %d Enter The Position:  ",playerNumber);
     scanf(" %d",&pos);
 }
