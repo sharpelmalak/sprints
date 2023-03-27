@@ -1,0 +1,112 @@
+1. Test the main flow against the wrong symbol choice
+  ----------->(k,m,n,1,2,3)
+
+////////////////////
+
+2. Test the main flow against repeated symbol choice
+----------->(o,o,x,x)
+
+
+
+///////////////////////
+3. Test the main flow against X player winning:
+- All Rows winning (3)
+3.1--> x x x
+       o 4 5
+       o 8 9
+
+3.2--> o x o
+       x x x
+       o o 8
+
+3.3--> x o o
+       o 5 6
+       x x x
+
+- All Columns winning (3)
+3.4--> x o 3
+       x 5 6
+       x o 9
+
+3.5--> o x 3
+       o x o
+       7 x 9
+
+3.6--> x o x
+       o o x
+       o x x
+
+
+- All Diagonals winning (2)
+
+3.7--> x o o
+       o x x
+       x o x
+
+
+3.8--> o o x
+       o x 6
+       x o 9
+
+////////////////////////////////////////////////////
+
+
+
+4. Test the main flow against O player winning: 
+
+4.1--> o o o
+       x 5 5
+       x 8 9
+
+4.2--> x o x
+       o o o
+       x x 9
+
+4.3--> o x x
+       x 5 6
+       o o o
+
+- All Columns winning (3)
+4.4--> o x 3
+       o 5 6
+       o x 9
+
+4.5--> x o 3
+       x o x
+       7 o 9
+
+
+4.6--> o x o
+       x x o
+       x o o
+
+
+- All Diagonals winning (2)
+
+4.7--> o x x
+       x o o
+       o x o
+
+
+4.8--> x x o
+       x o 5
+       o x 8
+///////////////////////////////////////////////////////////////////////
+
+
+
+5. Test the main flow against X player draw case at least three draw cases
+
+5.1--> x o x
+       o o x
+       x x o
+
+
+5.2--> x o o
+       o x x
+       x x o
+
+
+5.3--> o x x
+       x o o
+       o x x

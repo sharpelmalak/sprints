@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1679917279 source:d:\codeblocks\x-o_game\main.c
+	<stdio.h>
+	<string.h>
+	"x_o.h"
+
+1679915278 source:d:\codeblocks\x-o_game\x_o.c
+
+1679914315 d:\codeblocks\x-o_game\x_o.h
+
+1679924818 source:d:\sprints\codes\x-o_game\main.c
+	<stdio.h>
+	<string.h>
+	"x_o.h"
+
+1679914315 d:\sprints\codes\x-o_game\x_o.h
+
+1679924676 source:d:\sprints\codes\x-o_game\x_o.c
+
+1679924676 source:d:\sprints\sprints\c\c_01_xogame\x-o_game\x_o.c
+
+1679927458 source:d:\sprints\sprints\c\c_01_xogame\x-o_game\main.c
+	<stdio.h>
+	<string.h>
+	"x_o.h"
+
+1679914315 d:\sprints\sprints\c\c_01_xogame\x-o_game\x_o.h
+
