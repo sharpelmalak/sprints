@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1679963890 source:d:\codeblocks\stackarraybased\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1680115598 source:d:\codeblocks\checkbalancedparanthethes\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1680125866 source:d:\sprints\sprints\ds\ds_01_checkbalancedparanthethes\checkbalancedparanthethes\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1680130184 source:d:\sprints\sprints\build\build_01_refactorprevioustasks\checkbalancedparanthethes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"main.h"
+	"stack.h"
+	"balanced.h"
+
+1680130184 d:\sprints\sprints\build\build_01_refactorprevioustasks\checkbalancedparanthethes\main.h
+
+1680130184 d:\sprints\sprints\build\build_01_refactorprevioustasks\checkbalancedparanthethes\stack.h
+
+1680130184 d:\sprints\sprints\build\build_01_refactorprevioustasks\checkbalancedparanthethes\balanced.h
+
+1680130311 source:d:\sprints\sprints\build\build_01_refactorprevioustasks\checkbalancedparanthethes\balanced.c
+	"main.h"
+	"stack.h"
+

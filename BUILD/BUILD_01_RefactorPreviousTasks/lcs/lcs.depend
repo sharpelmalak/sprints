@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1680117857 source:d:\codeblocks\lcs\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1680128697 source:d:\sprints\sprints\alg\s_alg_01_lcs\lcs\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"main.h"
+	"sort.h"
+	"lcs.h"
+
+1680128697 d:\sprints\sprints\alg\s_alg_01_lcs\lcs\main.h
+
+1680128697 d:\sprints\sprints\alg\s_alg_01_lcs\lcs\sort.h
+
+1680128697 d:\sprints\sprints\alg\s_alg_01_lcs\lcs\lcs.h
+
+1680128767 source:d:\sprints\sprints\alg\s_alg_01_lcs\lcs\lcs.c
+	"main.h"
+
+1680128767 source:d:\sprints\sprints\alg\s_alg_01_lcs\lcs\sort.c
+	"main.h"
+
