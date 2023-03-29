@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1679963890 source:d:\codeblocks\stackarraybased\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1680115598 source:d:\codeblocks\checkbalancedparanthethes\main.c
+	<stdio.h>
+	<stdlib.h>
+
