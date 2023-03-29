@@ -21,7 +21,7 @@ int8_t isBalancedParanthethes(uint8_t *expression);
 
 int main()
 {
-    /*
+
     // initialize stack
     ST_stack_t s;
     // vars for pop , push , and returned values
@@ -30,7 +30,9 @@ int main()
 
     //Create an empty stack
     createEmptyStack(&s);
+   // printf("%d\n",s.top);
 
+/*
     //Push 5 different characters to the stack
      var_return = push(&s,1);
      var_return = push(&s,2);
@@ -38,18 +40,24 @@ int main()
      var_return = push(&s,4);
      var_return = push(&s,5);
 
+
+
+
+
      //Print all stack data
-     var_return = printStack(&s);
+   //  var_return = printStack(&s);
+
 
      //Pop one character from the stack
      var_return = pop(&s,&datapoped);
+    // printf("%d\n",s.top);
 
      //Print the stack's top
      var_return = getStackTop(&s,&dataTop);
-     printf("Stack Top is %d\n\n",dataTop);
+   //  printf("Stack Top is %d\n\n",dataTop);
 
      //Print all stack data
-     var_return = printStack(&s);
+   //  var_return = printStack(&s);
 
      // Push another 7 different characters to the stack
      var_return = push(&s,10);
@@ -61,12 +69,14 @@ int main()
      //overflow
      var_return = push(&s,70);
 
+     //printf("%d",var_return);
+
      //Print the stack's top
      var_return = getStackTop(&s,&dataTop);
-     printf("Stack Top is %d\n\n",dataTop);
+    // printf("Stack Top is %d\n\n",dataTop);
 
-      //Print all stack data
-     var_return = printStack(&s);
+     //Print all stack data
+    // var_return = printStack(&s);
 
 
       //Pop 4 character from the stack
@@ -78,12 +88,12 @@ int main()
 
      //Print the stack's top
      var_return = getStackTop(&s,&dataTop);
-     printf("Stack Top is %d\n\n",dataTop);
+    // printf("Stack Top is %d\n\n",dataTop);
 
 
 
      //Print all stack data
-     var_return = printStack(&s);
+    // var_return = printStack(&s);
 
      // Pop 7 more times from the stack
      var_return = pop(&s,&datapoped);
@@ -98,12 +108,13 @@ int main()
 
 
      //Print the stack's top
-     var_return = getStackTop(&s,&dataTop);//Empty Stack var_return will = -2
-     printf("Stack Top is %d\n\n",dataTop);
+    // var_return = getStackTop(&s,&dataTop);//Empty Stack var_return will = -2
+    // printf(" %d\n\n",dataTop);
 
      //Print all stack data
      var_return = printStack(&s); //Empty Stack var_return will = -2
      printf("\n\n%d",var_return); */
+
     printf("ENTER THE EXPRESSION\n\n");
     uint8_t exp[50];
     gets(exp);
@@ -112,9 +123,9 @@ int main()
     if(!return_val)printf("the parentheses are balanced\n");
     else if (return_val == -1)printf("the parentheses are not balanced\n");
     else{
-        printf("the neither of paranthethes is used\n");
+       printf("the neither of paranthethes is used\n");
 
-    }
+     }
 
     system("pause");
     return 0;
@@ -144,7 +155,7 @@ if(stack->top==-1)return -2;
 int8_t printStack(ST_stack_t *stack){
 int8_t i;
 if(stack->top == -1 )return -2;
-for(i=(stack->top);i>=0;i--)printf("%c\n",stack->elements[i]);
+for(i=(stack->top);i>=0;i--)printf("%d\n",stack->elements[i]);
 if(stack->top == STACK_SIZE-1)return -1 ;
 return 0;
 }
