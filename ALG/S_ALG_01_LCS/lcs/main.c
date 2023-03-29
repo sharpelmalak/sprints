@@ -12,6 +12,7 @@ void printArray(int32_t *array, uint8_t arraySize);
 int8_t lcsGetSize(int32_t *array, uint8_t arraySize, uint8_t *sizeofLCS);
 int main()
 {
+
     int8_t i=0,returned_val;
     uint8_t lcs;
     int32_t arr[MAX_SIZE]={};
@@ -42,10 +43,10 @@ int main()
    //returns -2 if the array size is 0 or >10
    //returns -3 if there is no LCS,
    // 0therwise 0
-    if(returned_val == -1) printf("Empty Array\n");
+    if(returned_val == -1){printf("Empty Array\n"); printArray(arr,i);}
     else if(returned_val == -2) printf("Size Error\n");
     else if(returned_val == -3){
-            printf("there is no LCS\n");
+           printf("there is no LCS\n");
             printArray(arr,i);
     }
     else {
