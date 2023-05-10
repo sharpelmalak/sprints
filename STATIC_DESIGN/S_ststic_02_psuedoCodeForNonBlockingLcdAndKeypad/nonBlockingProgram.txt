@@ -1,0 +1,248 @@
+#Author : Sharpel Malak
+#psuedo code for non-blocking LCD,Keypad program ( SIMPLY IT TAKES CHARACTER FROM KEYPAD AND PRINT IT ON LCD )
+
+start program (main.c)
+
+extern lcd_init_bit 
+extern KP_init_bit  
+
+
+function main()
+
+init_state  = lcd_state
+
+while kp_init_bit == 0 or LCD_init_bit == 0 :
+
+  switch (init_state) 
+  
+      case lcd_state :
+	      
+		  if(lcd_init_bit == 0)
+		    lcd_init()
+		  endif	
+		  
+		  state = kp_state
+		  break
+		  
+		  
+	  case kp_state :
+	      
+		  if(kp_init_bit == 0)
+		    kp_init()
+		  endif	
+		  
+		  state = lcd_state
+		  break  
+		  
+		  
+  endswitch
+
+end while 
+
+states = read
+super loop :
+
+ 
+ switch(states)
+ 
+   case read :
+     local_key =  get_button()
+	 state = write
+	 break;
+	 
+	 
+   case write :
+     
+	 status = lcd_sendChar(local_key)
+	 if (status == 0 )
+	   states = read 
+	 else  
+	   states = write
+	 break;
+
+
+    end switch
+	
+    
+end super loop
+end main 
+
+
+
+end program
+ 
+
+(lcd.c)
+
+g_TIM_OVF_flag = 0 ;
+
+lcd_init_bit = 0
+
+
+ISR(TIM_OVF) ----> g_TIM_OVF_flag++;
+		  
+function lcd_init()
+
+   static local_lcd_init = 0
+   
+   if( local_lcd_init == 0 )
+    initilize lcd_dir as output  
+	startasync( 20 ms )
+	local_lcd_init++;
+	
+	
+   else if ( local_lcd_init == 1 && g_TIM_OVF_flag == 1 )
+   
+     
+	 g_TIM_OVF_flag = 0 
+     returned = SendCmd(cmd)    //Initialization of 16X2 LCD in 8bit mode
+	 if ( not returned ) 
+	   local_lcd_init++;
+	 endif  
+	 
+	 
+   else if ( local_lcd_init == 2 && g_TIM_OVF_flag == 1 )
+   
+     
+         g_TIM_OVF_flag = 0
+	 returned = SendCmd(cmd)    //Display ON Cursor OFF
+	 if ( not returned ) 
+	   local_lcd_init++;  
+	 endif
+	  
+	 
+	| 
+	|
+    | the same logic for the rest of cmds (clear g_TIM_OVF_flag check if function done --> increment local counter)	
+	
+	#last case should set lcd_init_bit 
+   end if
+
+
+end function
+
+
+u8 function lcd_sendCmd(cmd)
+
+    static local_lcd_cmd = 0 
+	
+    if( local_lcd_cmd == 0 )
+	
+	    LCD_DATA_PORT = cmd
+	
+		RS=0 to select command reg.
+		RW=0 wirte operation
+		E =1 Enable high pulse  	
+		startasync( 1 us )
+		local_lcd_cmd++;
+		return 1; // means that you need to call this function again to continue executing inatruction after delay 
+	
+    else if ( local_lcd_cmd == 1 && g_TIM_OVF_flag == 1 )
+	
+	    E =0 Enable low pulse
+		startasync( 3 ms )
+		local_lcd_cmd++;
+		return 1 ; 
+		
+		
+		
+	else if ( local_lcd_cmd == 2 && g_TIM_OVF_flag == 1 )
+	   
+	    local_lcd_cmd = 0
+		return 0 ; the function executed  	
+		
+		
+end function	
+
+
+u8 function lcd_sendChar(char)
+    static local_lcd_char = 0 
+	
+    if( local_lcd_char == 0 )
+	
+	    LCD_DATA_PORT = char
+		RS=1 to select data reg.
+		RW=0 wirte operation
+		E =1 Enable high pulse  	
+		startasync( 1 us )
+		local_lcd_char++;
+		return 1; // means that you need to call this function again to continue executing inatruction after delay 
+	
+    else if ( local_lcd_char == 1 && g_TIM_OVF_flag == 1 )
+	
+	    E =0 Enable low pulse
+		startasync( 1 ms )
+		local_lcd_char++;
+		return 1 ; 
+		
+		
+		
+	else if ( local_lcd_char == 2 && g_TIM_OVF_flag == 1 )
+	   
+	    local_lcd_char = 0
+		return 0 ; the function executed  	
+		
+		
+end function	
+
+
+
+
+(kp.c)
+
+kp_init_bit = 0
+
+define no_of_cols
+define no_of_rows
+function kp_init () 
+
+   Set direction of rows as outputs
+   Set direction of columns as inputs
+
+
+   set kp_init_bit 
+
+
+
+end function   
+
+
+u8 function kp_getButton ()
+
+      
+    local col,row;
+    local key[rows][cols];
+	local debouncing;	  
+	  
+	for( row = 0 ; row < no_of_rows ; row ++ )
+	  
+	  
+	    set value of kp_port --> high   except row is low
+		
+		for(col = 0 ; col < no_of_cols ; col ++ )
+		  
+		  if ( col in kp_pin == 0 && debouncing == 0)
+		  
+		    
+		         debouncing = 1 ;
+		         pressed = key[row][col]
+			 
+			
+		  endif
+		 	
+		 
+		  
+		  if (debouncing == 1 && pressed turns to high)
+		      debouncing = 0 ;
+		      return pressed ;
+           		  
+		   
+		  endif	
+		  
+		  
+		end inner for
+
+	end outer for
+
+
+end function
