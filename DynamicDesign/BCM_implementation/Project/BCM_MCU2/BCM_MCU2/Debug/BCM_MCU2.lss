@@ -3,31 +3,31 @@ BCM_MCU2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000007a4  00000000  00000000  00000094  2**1
+  0 .text         000007cc  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000114  00800060  000007a4  00000838  2**0
+  1 .data         00000112  00800060  000007cc  00000860  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          000000dd  00800174  00800174  0000094c  2**0
+  2 .bss          000000de  00800172  00800172  00000972  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000094c  2**0
+  3 .comment      00000030  00000000  00000000  00000972  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000097c  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000009a4  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000001a8  00000000  00000000  000009b8  2**0
+  5 .debug_aranges 000001a8  00000000  00000000  000009e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000020ac  00000000  00000000  00000b60  2**0
+  6 .debug_info   000020c0  00000000  00000000  00000b88  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000cdd  00000000  00000000  00002c0c  2**0
+  7 .debug_abbrev 00000cdd  00000000  00000000  00002c48  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000010e3  00000000  00000000  000038e9  2**0
+  8 .debug_line   0000112f  00000000  00000000  00003925  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000324  00000000  00000000  000049cc  2**2
+  9 .debug_frame  00000324  00000000  00000000  00004a54  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000d58  00000000  00000000  00004cf0  2**0
+ 10 .debug_str    00000d81  00000000  00000000  00004d78  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000013e7  00000000  00000000  00005a48  2**0
+ 11 .debug_loc    000013e7  00000000  00000000  00005af9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000118  00000000  00000000  00006e2f  2**0
+ 12 .debug_ranges 00000118  00000000  00000000  00006ee0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -46,9 +46,9 @@ Disassembly of section .text:
   28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  34:	0c 94 d1 02 	jmp	0x5a2	; 0x5a2 <__vector_13>
+  34:	0c 94 d4 02 	jmp	0x5a8	; 0x5a8 <__vector_13>
   38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  3c:	0c 94 0d 03 	jmp	0x61a	; 0x61a <__vector_15>
+  3c:	0c 94 21 03 	jmp	0x642	; 0x642 <__vector_15>
   40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -67,18 +67,18 @@ Disassembly of section .text:
   60:	11 e0       	ldi	r17, 0x01	; 1
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e4 ea       	ldi	r30, 0xA4	; 164
+  66:	ec ec       	ldi	r30, 0xCC	; 204
   68:	f7 e0       	ldi	r31, 0x07	; 7
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	a4 37       	cpi	r26, 0x74	; 116
+  70:	a2 37       	cpi	r26, 0x72	; 114
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
 
 00000076 <__do_clear_bss>:
   76:	22 e0       	ldi	r18, 0x02	; 2
-  78:	a4 e7       	ldi	r26, 0x74	; 116
+  78:	a2 e7       	ldi	r26, 0x72	; 114
   7a:	b1 e0       	ldi	r27, 0x01	; 1
   7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -86,11 +86,11 @@ Disassembly of section .text:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	a1 35       	cpi	r26, 0x51	; 81
+  80:	a0 35       	cpi	r26, 0x50	; 80
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
   86:	0e 94 bc 00 	call	0x178	; 0x178 <main>
-  8a:	0c 94 d0 03 	jmp	0x7a0	; 0x7a0 <_exit>
+  8a:	0c 94 e4 03 	jmp	0x7c8	; 0x7c8 <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -108,7 +108,7 @@ void app_init(void)
 	// init leds and check on their return
 	
 	if( (LED_init(&gl_str_send_complete_led) != LED_OK) || (LED_init(&gl_str_recieve_complete_led) != LED_OK))
-  9a:	80 e8       	ldi	r24, 0x80	; 128
+  9a:	8e e7       	ldi	r24, 0x7E	; 126
   9c:	91 e0       	ldi	r25, 0x01	; 1
   9e:	0e 94 ab 00 	call	0x156	; 0x156 <LED_init>
   a2:	81 11       	cpse	r24, r1
@@ -121,25 +121,25 @@ void app_init(void)
 	{
 		gl_enu_app_state = BLOCKED;
   b2:	81 e0       	ldi	r24, 0x01	; 1
-  b4:	80 93 7f 01 	sts	0x017F, r24	; 0x80017f <gl_enu_app_state>
+  b4:	80 93 7d 01 	sts	0x017D, r24	; 0x80017d <gl_enu_app_state>
 	}
 	
 	
 	gl_enu_bcm_status_return = bcm_init(&gl_str_bcm_instance_app);
-  b8:	85 e7       	ldi	r24, 0x75	; 117
+  b8:	83 e7       	ldi	r24, 0x73	; 115
   ba:	91 e0       	ldi	r25, 0x01	; 1
-  bc:	0e 94 44 03 	call	0x688	; 0x688 <bcm_init>
-  c0:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <__data_end>
+  bc:	0e 94 58 03 	call	0x6b0	; 0x6b0 <bcm_init>
+  c0:	80 93 72 01 	sts	0x0172, r24	; 0x800172 <__data_end>
 	if((gl_enu_bcm_status_return != BCM_OKAY) && (gl_enu_app_state != BLOCKED))
   c4:	88 23       	and	r24, r24
   c6:	39 f0       	breq	.+14     	; 0xd6 <app_init+0x44>
-  c8:	80 91 7f 01 	lds	r24, 0x017F	; 0x80017f <gl_enu_app_state>
+  c8:	80 91 7d 01 	lds	r24, 0x017D	; 0x80017d <gl_enu_app_state>
   cc:	81 30       	cpi	r24, 0x01	; 1
   ce:	19 f0       	breq	.+6      	; 0xd6 <app_init+0x44>
 	{
 		gl_enu_app_state = BLOCKED;
   d0:	81 e0       	ldi	r24, 0x01	; 1
-  d2:	80 93 7f 01 	sts	0x017F, r24	; 0x80017f <gl_enu_app_state>
+  d2:	80 93 7d 01 	sts	0x017D, r24	; 0x80017d <gl_enu_app_state>
   d6:	08 95       	ret
 
 000000d8 <app_start>:
@@ -149,7 +149,7 @@ void app_init(void)
 void app_start(void)
 {
 	switch(gl_enu_app_state)
-  d8:	80 91 7f 01 	lds	r24, 0x017F	; 0x80017f <gl_enu_app_state>
+  d8:	80 91 7d 01 	lds	r24, 0x017D	; 0x80017d <gl_enu_app_state>
   dc:	88 23       	and	r24, r24
   de:	19 f0       	breq	.+6      	; 0xe6 <app_start+0xe>
   e0:	81 30       	cpi	r24, 0x01	; 1
@@ -159,16 +159,16 @@ void app_start(void)
 		case IDLE :
 		{
 			gl_enu_bcm_status_return = bcm_dispatcher(&gl_str_bcm_instance_app);
-  e6:	85 e7       	ldi	r24, 0x75	; 117
+  e6:	83 e7       	ldi	r24, 0x73	; 115
   e8:	91 e0       	ldi	r25, 0x01	; 1
-  ea:	0e 94 b1 03 	call	0x762	; 0x762 <bcm_dispatcher>
-  ee:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <__data_end>
+  ea:	0e 94 c5 03 	call	0x78a	; 0x78a <bcm_dispatcher>
+  ee:	80 93 72 01 	sts	0x0172, r24	; 0x800172 <__data_end>
 			if(gl_enu_bcm_status_return == SEND_OPERATION_DONE)
   f2:	83 30       	cpi	r24, 0x03	; 3
   f4:	29 f4       	brne	.+10     	; 0x100 <app_start+0x28>
 			{
 				LED_toggle(&gl_str_send_complete_led);
-  f6:	80 e8       	ldi	r24, 0x80	; 128
+  f6:	8e e7       	ldi	r24, 0x7E	; 126
   f8:	91 e0       	ldi	r25, 0x01	; 1
   fa:	0e 94 b4 00 	call	0x168	; 0x168 <LED_toggle>
   fe:	08 95       	ret
@@ -178,11 +178,11 @@ void app_start(void)
  102:	f1 f4       	brne	.+60     	; 0x140 <app_start+0x68>
 			{
 				if(!strcmp(gl_rec_string_from_dest,gl_recieve_arr))
- 104:	63 e8       	ldi	r22, 0x83	; 131
+ 104:	62 e8       	ldi	r22, 0x82	; 130
  106:	71 e0       	ldi	r23, 0x01	; 1
  108:	86 e7       	ldi	r24, 0x76	; 118
  10a:	90 e0       	ldi	r25, 0x00	; 0
- 10c:	0e 94 c7 03 	call	0x78e	; 0x78e <strcmp>
+ 10c:	0e 94 db 03 	call	0x7b6	; 0x7b6 <strcmp>
  110:	89 2b       	or	r24, r25
  112:	01 f5       	brne	.+64     	; 0x154 <app_start+0x7c>
 				{
@@ -202,10 +202,10 @@ void app_start(void)
  12c:	50 40       	sbci	r21, 0x00	; 0
  12e:	60 e6       	ldi	r22, 0x60	; 96
  130:	70 e0       	ldi	r23, 0x00	; 0
- 132:	85 e7       	ldi	r24, 0x75	; 117
+ 132:	83 e7       	ldi	r24, 0x73	; 115
  134:	91 e0       	ldi	r25, 0x01	; 1
- 136:	0e 94 83 03 	call	0x706	; 0x706 <bcm_send_n>
- 13a:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <__data_end>
+ 136:	0e 94 97 03 	call	0x72e	; 0x72e <bcm_send_n>
+ 13a:	80 93 72 01 	sts	0x0172, r24	; 0x800172 <__data_end>
  13e:	08 95       	ret
 				}
 				
@@ -217,7 +217,7 @@ void app_start(void)
 			{
 				gl_enu_app_state = BLOCKED;
  144:	81 e0       	ldi	r24, 0x01	; 1
- 146:	80 93 7f 01 	sts	0x017F, r24	; 0x80017f <gl_enu_app_state>
+ 146:	80 93 7d 01 	sts	0x017D, r24	; 0x80017d <gl_enu_app_state>
  14a:	08 95       	ret
 			break;
 		}
@@ -599,11 +599,11 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
 	
 	return STATUS_OK;
 }
- 34e:	90 91 51 01 	lds	r25, 0x0151	; 0x800151 <str_gl_usart_tasks_queue+0xc8>
+ 34e:	90 91 50 01 	lds	r25, 0x0150	; 0x800150 <str_gl_usart_tasks_queue+0xc8>
  352:	99 23       	and	r25, r25
  354:	14 f4       	brge	.+4      	; 0x35a <insert_queue+0xc>
- 356:	10 92 51 01 	sts	0x0151, r1	; 0x800151 <str_gl_usart_tasks_queue+0xc8>
- 35a:	a2 e5       	ldi	r26, 0x52	; 82
+ 356:	10 92 50 01 	sts	0x0150, r1	; 0x800150 <str_gl_usart_tasks_queue+0xc8>
+ 35a:	a1 e5       	ldi	r26, 0x51	; 81
  35c:	b1 e0       	ldi	r27, 0x01	; 1
  35e:	ec 91       	ld	r30, X
  360:	ef 5f       	subi	r30, 0xFF	; 255
@@ -611,32 +611,32 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
  364:	0e 2e       	mov	r0, r30
  366:	00 0c       	add	r0, r0
  368:	ff 0b       	sbc	r31, r31
- 36a:	e7 57       	subi	r30, 0x77	; 119
+ 36a:	e8 57       	subi	r30, 0x78	; 120
  36c:	ff 4f       	sbci	r31, 0xFF	; 255
  36e:	80 83       	st	Z, r24
  370:	80 e0       	ldi	r24, 0x00	; 0
  372:	08 95       	ret
 
 00000374 <truncate_queue>:
- 374:	e0 91 51 01 	lds	r30, 0x0151	; 0x800151 <str_gl_usart_tasks_queue+0xc8>
- 378:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <str_gl_usart_tasks_queue+0xc9>
+ 374:	e0 91 50 01 	lds	r30, 0x0150	; 0x800150 <str_gl_usart_tasks_queue+0xc8>
+ 378:	80 91 51 01 	lds	r24, 0x0151	; 0x800151 <str_gl_usart_tasks_queue+0xc9>
  37c:	8e 17       	cp	r24, r30
  37e:	14 f0       	brlt	.+4      	; 0x384 <truncate_queue+0x10>
  380:	ef 3f       	cpi	r30, 0xFF	; 255
  382:	39 f4       	brne	.+14     	; 0x392 <truncate_queue+0x1e>
  384:	8f ef       	ldi	r24, 0xFF	; 255
- 386:	80 93 51 01 	sts	0x0151, r24	; 0x800151 <str_gl_usart_tasks_queue+0xc8>
- 38a:	80 93 52 01 	sts	0x0152, r24	; 0x800152 <str_gl_usart_tasks_queue+0xc9>
+ 386:	80 93 50 01 	sts	0x0150, r24	; 0x800150 <str_gl_usart_tasks_queue+0xc8>
+ 38a:	80 93 51 01 	sts	0x0151, r24	; 0x800151 <str_gl_usart_tasks_queue+0xc9>
  38e:	84 e0       	ldi	r24, 0x04	; 4
  390:	08 95       	ret
  392:	0e 2e       	mov	r0, r30
  394:	00 0c       	add	r0, r0
  396:	ff 0b       	sbc	r31, r31
- 398:	e7 57       	subi	r30, 0x77	; 119
+ 398:	e8 57       	subi	r30, 0x78	; 120
  39a:	ff 4f       	sbci	r31, 0xFF	; 255
  39c:	80 81       	ld	r24, Z
  39e:	8c b9       	out	0x0c, r24	; 12
- 3a0:	e1 e5       	ldi	r30, 0x51	; 81
+ 3a0:	e0 e5       	ldi	r30, 0x50	; 80
  3a2:	f1 e0       	ldi	r31, 0x01	; 1
  3a4:	80 81       	ld	r24, Z
  3a6:	8f 5f       	subi	r24, 0xFF	; 255
@@ -653,12 +653,12 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
  3b8:	81 30       	cpi	r24, 0x01	; 1
  3ba:	39 f0       	breq	.+14     	; 0x3ca <USART_setCallBack+0x1c>
  3bc:	0e c0       	rjmp	.+28     	; 0x3da <USART_setCallBack+0x2c>
- 3be:	70 93 4e 02 	sts	0x024E, r23	; 0x80024e <ptr_USART_send+0x1>
- 3c2:	60 93 4d 02 	sts	0x024D, r22	; 0x80024d <ptr_USART_send>
+ 3be:	70 93 4d 02 	sts	0x024D, r23	; 0x80024d <ptr_USART_send+0x1>
+ 3c2:	60 93 4c 02 	sts	0x024C, r22	; 0x80024c <ptr_USART_send>
  3c6:	80 e0       	ldi	r24, 0x00	; 0
  3c8:	08 95       	ret
- 3ca:	70 93 4c 02 	sts	0x024C, r23	; 0x80024c <ptr_USART_recieve+0x1>
- 3ce:	60 93 4b 02 	sts	0x024B, r22	; 0x80024b <ptr_USART_recieve>
+ 3ca:	70 93 4b 02 	sts	0x024B, r23	; 0x80024b <ptr_USART_recieve+0x1>
+ 3ce:	60 93 4a 02 	sts	0x024A, r22	; 0x80024a <ptr_USART_recieve>
  3d2:	80 e0       	ldi	r24, 0x00	; 0
  3d4:	08 95       	ret
  3d6:	85 e0       	ldi	r24, 0x05	; 5
@@ -678,7 +678,7 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
  3ee:	f3 1f       	adc	r31, r19
  3f0:	ee 0f       	add	r30, r30
  3f2:	ff 1f       	adc	r31, r31
- 3f4:	ed 5a       	subi	r30, 0xAD	; 173
+ 3f4:	ee 5a       	subi	r30, 0xAE	; 174
  3f6:	fe 4f       	sbci	r31, 0xFE	; 254
  3f8:	90 81       	ld	r25, Z
  3fa:	89 13       	cpse	r24, r25
@@ -690,7 +690,7 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
  406:	f3 1f       	adc	r31, r19
  408:	ee 0f       	add	r30, r30
  40a:	ff 1f       	adc	r31, r31
- 40c:	ed 5a       	subi	r30, 0xAD	; 173
+ 40c:	ee 5a       	subi	r30, 0xAE	; 174
  40e:	fe 4f       	sbci	r31, 0xFE	; 254
  410:	05 c0       	rjmp	.+10     	; 0x41c <__EEPROM_REGION_LENGTH__+0x1c>
  412:	8f 5f       	subi	r24, 0xFF	; 255
@@ -866,415 +866,444 @@ EN_DIO_ERROR DIO_toggle(EN_DIO_PINS pinNumber,EN_DIO_PORTS portNumber){
  562:	cf 93       	push	r28
  564:	df 93       	push	r29
  566:	00 97       	sbiw	r24, 0x00	; 0
- 568:	a1 f0       	breq	.+40     	; 0x592 <USART_send_n_bytes+0x36>
+ 568:	b9 f0       	breq	.+46     	; 0x598 <USART_send_n_bytes+0x3c>
  56a:	f6 2e       	mov	r15, r22
  56c:	8c 01       	movw	r16, r24
- 56e:	c0 e0       	ldi	r28, 0x00	; 0
- 570:	d0 e0       	ldi	r29, 0x00	; 0
- 572:	0a c0       	rjmp	.+20     	; 0x588 <USART_send_n_bytes+0x2c>
- 574:	f8 01       	movw	r30, r16
- 576:	ec 0f       	add	r30, r28
- 578:	f1 1d       	adc	r31, r1
- 57a:	80 81       	ld	r24, Z
- 57c:	0e 94 a7 01 	call	0x34e	; 0x34e <insert_queue>
- 580:	d8 2f       	mov	r29, r24
- 582:	81 11       	cpse	r24, r1
- 584:	03 c0       	rjmp	.+6      	; 0x58c <USART_send_n_bytes+0x30>
- 586:	cf 5f       	subi	r28, 0xFF	; 255
- 588:	cf 15       	cp	r28, r15
- 58a:	a0 f3       	brcs	.-24     	; 0x574 <USART_send_n_bytes+0x18>
- 58c:	0e 94 ba 01 	call	0x374	; 0x374 <truncate_queue>
- 590:	01 c0       	rjmp	.+2      	; 0x594 <USART_send_n_bytes+0x38>
- 592:	d5 e0       	ldi	r29, 0x05	; 5
- 594:	8d 2f       	mov	r24, r29
- 596:	df 91       	pop	r29
- 598:	cf 91       	pop	r28
- 59a:	1f 91       	pop	r17
- 59c:	0f 91       	pop	r16
- 59e:	ff 90       	pop	r15
- 5a0:	08 95       	ret
+ 56e:	86 2f       	mov	r24, r22
+ 570:	0e 94 a7 01 	call	0x34e	; 0x34e <insert_queue>
+ 574:	c0 e0       	ldi	r28, 0x00	; 0
+ 576:	d0 e0       	ldi	r29, 0x00	; 0
+ 578:	0a c0       	rjmp	.+20     	; 0x58e <USART_send_n_bytes+0x32>
+ 57a:	f8 01       	movw	r30, r16
+ 57c:	ec 0f       	add	r30, r28
+ 57e:	f1 1d       	adc	r31, r1
+ 580:	80 81       	ld	r24, Z
+ 582:	0e 94 a7 01 	call	0x34e	; 0x34e <insert_queue>
+ 586:	d8 2f       	mov	r29, r24
+ 588:	81 11       	cpse	r24, r1
+ 58a:	03 c0       	rjmp	.+6      	; 0x592 <USART_send_n_bytes+0x36>
+ 58c:	cf 5f       	subi	r28, 0xFF	; 255
+ 58e:	cf 15       	cp	r28, r15
+ 590:	a0 f3       	brcs	.-24     	; 0x57a <USART_send_n_bytes+0x1e>
+ 592:	0e 94 ba 01 	call	0x374	; 0x374 <truncate_queue>
+ 596:	01 c0       	rjmp	.+2      	; 0x59a <USART_send_n_bytes+0x3e>
+ 598:	d5 e0       	ldi	r29, 0x05	; 5
+ 59a:	8d 2f       	mov	r24, r29
+ 59c:	df 91       	pop	r29
+ 59e:	cf 91       	pop	r28
+ 5a0:	1f 91       	pop	r17
+ 5a2:	0f 91       	pop	r16
+ 5a4:	ff 90       	pop	r15
+ 5a6:	08 95       	ret
 
-000005a2 <__vector_13>:
+000005a8 <__vector_13>:
 	
 
 
 
 ISR(USART_RXC_INT)
 {
- 5a2:	1f 92       	push	r1
- 5a4:	0f 92       	push	r0
- 5a6:	0f b6       	in	r0, 0x3f	; 63
- 5a8:	0f 92       	push	r0
- 5aa:	11 24       	eor	r1, r1
- 5ac:	2f 93       	push	r18
- 5ae:	3f 93       	push	r19
- 5b0:	4f 93       	push	r20
- 5b2:	5f 93       	push	r21
- 5b4:	6f 93       	push	r22
- 5b6:	7f 93       	push	r23
- 5b8:	8f 93       	push	r24
- 5ba:	9f 93       	push	r25
- 5bc:	af 93       	push	r26
- 5be:	bf 93       	push	r27
- 5c0:	ef 93       	push	r30
- 5c2:	ff 93       	push	r31
+ 5a8:	1f 92       	push	r1
+ 5aa:	0f 92       	push	r0
+ 5ac:	0f b6       	in	r0, 0x3f	; 63
+ 5ae:	0f 92       	push	r0
+ 5b0:	11 24       	eor	r1, r1
+ 5b2:	2f 93       	push	r18
+ 5b4:	3f 93       	push	r19
+ 5b6:	4f 93       	push	r20
+ 5b8:	5f 93       	push	r21
+ 5ba:	6f 93       	push	r22
+ 5bc:	7f 93       	push	r23
+ 5be:	8f 93       	push	r24
+ 5c0:	9f 93       	push	r25
+ 5c2:	af 93       	push	r26
+ 5c4:	bf 93       	push	r27
+ 5c6:	ef 93       	push	r30
+ 5c8:	ff 93       	push	r31
 	
 
-	if(gl_recieve_index < gl_recieve_size)
- 5c4:	80 91 82 01 	lds	r24, 0x0182	; 0x800182 <gl_recieve_index>
- 5c8:	90 91 88 00 	lds	r25, 0x0088	; 0x800088 <gl_recieve_size>
- 5cc:	89 17       	cp	r24, r25
- 5ce:	48 f4       	brcc	.+18     	; 0x5e2 <__vector_13+0x40>
-	{
-		gl_recieve_arr[gl_recieve_index] = UDR ;
- 5d0:	e8 2f       	mov	r30, r24
- 5d2:	f0 e0       	ldi	r31, 0x00	; 0
- 5d4:	2c b1       	in	r18, 0x0c	; 12
- 5d6:	ed 57       	subi	r30, 0x7D	; 125
- 5d8:	fe 4f       	sbci	r31, 0xFE	; 254
- 5da:	20 83       	st	Z, r18
-		gl_recieve_index++;
- 5dc:	8f 5f       	subi	r24, 0xFF	; 255
- 5de:	80 93 82 01 	sts	0x0182, r24	; 0x800182 <gl_recieve_index>
-	}
+	 if(gl_recieve_size == NULL)
+ 5ca:	80 91 80 01 	lds	r24, 0x0180	; 0x800180 <gl_recieve_size>
+ 5ce:	81 11       	cpse	r24, r1
+ 5d0:	09 c0       	rjmp	.+18     	; 0x5e4 <__vector_13+0x3c>
+	 {
+		 // convert size to integer number
+		 gl_recieve_size = UDR;
+ 5d2:	8c b1       	in	r24, 0x0c	; 12
+ 5d4:	80 93 80 01 	sts	0x0180, r24	; 0x800180 <gl_recieve_size>
+		 if(gl_recieve_size < '0' || gl_recieve_size > '9')
+ 5d8:	80 53       	subi	r24, 0x30	; 48
+ 5da:	8a 30       	cpi	r24, 0x0A	; 10
+ 5dc:	80 f4       	brcc	.+32     	; 0x5fe <__vector_13+0x56>
+		 {
+			 //nothing
+		 }
+		 else
+		 {
+			 gl_recieve_size-='0';
+ 5de:	80 93 80 01 	sts	0x0180, r24	; 0x800180 <gl_recieve_size>
+ 5e2:	0d c0       	rjmp	.+26     	; 0x5fe <__vector_13+0x56>
+		 }
+	 }
+	 else if(gl_recieve_index < gl_recieve_size)
+ 5e4:	90 91 81 01 	lds	r25, 0x0181	; 0x800181 <gl_recieve_index>
+ 5e8:	98 17       	cp	r25, r24
+ 5ea:	48 f4       	brcc	.+18     	; 0x5fe <__vector_13+0x56>
+	 {
+		 gl_recieve_arr[gl_recieve_index] = UDR ;
+ 5ec:	e9 2f       	mov	r30, r25
+ 5ee:	f0 e0       	ldi	r31, 0x00	; 0
+ 5f0:	8c b1       	in	r24, 0x0c	; 12
+ 5f2:	ee 57       	subi	r30, 0x7E	; 126
+ 5f4:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5f6:	80 83       	st	Z, r24
+		 gl_recieve_index++;
+ 5f8:	9f 5f       	subi	r25, 0xFF	; 255
+ 5fa:	90 93 81 01 	sts	0x0181, r25	; 0x800181 <gl_recieve_index>
+	 }
 	 
-	if(gl_recieve_index == gl_recieve_size)
- 5e2:	80 91 82 01 	lds	r24, 0x0182	; 0x800182 <gl_recieve_index>
- 5e6:	98 13       	cpse	r25, r24
- 5e8:	07 c0       	rjmp	.+14     	; 0x5f8 <__vector_13+0x56>
-	{
+	 if(gl_recieve_index == gl_recieve_size && gl_recieve_size != NULL)
+ 5fe:	90 91 81 01 	lds	r25, 0x0181	; 0x800181 <gl_recieve_index>
+ 602:	80 91 80 01 	lds	r24, 0x0180	; 0x800180 <gl_recieve_size>
+ 606:	98 13       	cpse	r25, r24
+ 608:	0b c0       	rjmp	.+22     	; 0x620 <__vector_13+0x78>
+ 60a:	88 23       	and	r24, r24
+ 60c:	49 f0       	breq	.+18     	; 0x620 <__vector_13+0x78>
+	 {
 		 gl_recieve_index = 0;
- 5ea:	10 92 82 01 	sts	0x0182, r1	; 0x800182 <gl_recieve_index>
+ 60e:	10 92 81 01 	sts	0x0181, r1	; 0x800181 <gl_recieve_index>
+		 gl_recieve_size = NULL;
+ 612:	10 92 80 01 	sts	0x0180, r1	; 0x800180 <gl_recieve_size>
 		 ptr_USART_recieve();
- 5ee:	e0 91 4b 02 	lds	r30, 0x024B	; 0x80024b <ptr_USART_recieve>
- 5f2:	f0 91 4c 02 	lds	r31, 0x024C	; 0x80024c <ptr_USART_recieve+0x1>
- 5f6:	09 95       	icall
-		
-	} 
+ 616:	e0 91 4a 02 	lds	r30, 0x024A	; 0x80024a <ptr_USART_recieve>
+ 61a:	f0 91 4b 02 	lds	r31, 0x024B	; 0x80024b <ptr_USART_recieve+0x1>
+ 61e:	09 95       	icall
+		 
+	 }
 
 	
 }
- 5f8:	ff 91       	pop	r31
- 5fa:	ef 91       	pop	r30
- 5fc:	bf 91       	pop	r27
- 5fe:	af 91       	pop	r26
- 600:	9f 91       	pop	r25
- 602:	8f 91       	pop	r24
- 604:	7f 91       	pop	r23
- 606:	6f 91       	pop	r22
- 608:	5f 91       	pop	r21
- 60a:	4f 91       	pop	r20
- 60c:	3f 91       	pop	r19
- 60e:	2f 91       	pop	r18
- 610:	0f 90       	pop	r0
- 612:	0f be       	out	0x3f, r0	; 63
- 614:	0f 90       	pop	r0
- 616:	1f 90       	pop	r1
- 618:	18 95       	reti
+ 620:	ff 91       	pop	r31
+ 622:	ef 91       	pop	r30
+ 624:	bf 91       	pop	r27
+ 626:	af 91       	pop	r26
+ 628:	9f 91       	pop	r25
+ 62a:	8f 91       	pop	r24
+ 62c:	7f 91       	pop	r23
+ 62e:	6f 91       	pop	r22
+ 630:	5f 91       	pop	r21
+ 632:	4f 91       	pop	r20
+ 634:	3f 91       	pop	r19
+ 636:	2f 91       	pop	r18
+ 638:	0f 90       	pop	r0
+ 63a:	0f be       	out	0x3f, r0	; 63
+ 63c:	0f 90       	pop	r0
+ 63e:	1f 90       	pop	r1
+ 640:	18 95       	reti
 
-0000061a <__vector_15>:
+00000642 <__vector_15>:
 	
 ISR(USART_TXC_INT)
 {
- 61a:	1f 92       	push	r1
- 61c:	0f 92       	push	r0
- 61e:	0f b6       	in	r0, 0x3f	; 63
- 620:	0f 92       	push	r0
- 622:	11 24       	eor	r1, r1
- 624:	2f 93       	push	r18
- 626:	3f 93       	push	r19
- 628:	4f 93       	push	r20
- 62a:	5f 93       	push	r21
- 62c:	6f 93       	push	r22
- 62e:	7f 93       	push	r23
- 630:	8f 93       	push	r24
- 632:	9f 93       	push	r25
- 634:	af 93       	push	r26
- 636:	bf 93       	push	r27
- 638:	ef 93       	push	r30
- 63a:	ff 93       	push	r31
+ 642:	1f 92       	push	r1
+ 644:	0f 92       	push	r0
+ 646:	0f b6       	in	r0, 0x3f	; 63
+ 648:	0f 92       	push	r0
+ 64a:	11 24       	eor	r1, r1
+ 64c:	2f 93       	push	r18
+ 64e:	3f 93       	push	r19
+ 650:	4f 93       	push	r20
+ 652:	5f 93       	push	r21
+ 654:	6f 93       	push	r22
+ 656:	7f 93       	push	r23
+ 658:	8f 93       	push	r24
+ 65a:	9f 93       	push	r25
+ 65c:	af 93       	push	r26
+ 65e:	bf 93       	push	r27
+ 660:	ef 93       	push	r30
+ 662:	ff 93       	push	r31
 	if (truncate_queue()==QUEUE_EMPTY)
- 63c:	0e 94 ba 01 	call	0x374	; 0x374 <truncate_queue>
- 640:	84 30       	cpi	r24, 0x04	; 4
- 642:	29 f4       	brne	.+10     	; 0x64e <__vector_15+0x34>
+ 664:	0e 94 ba 01 	call	0x374	; 0x374 <truncate_queue>
+ 668:	84 30       	cpi	r24, 0x04	; 4
+ 66a:	29 f4       	brne	.+10     	; 0x676 <__vector_15+0x34>
 	{
 		ptr_USART_send();
- 644:	e0 91 4d 02 	lds	r30, 0x024D	; 0x80024d <ptr_USART_send>
- 648:	f0 91 4e 02 	lds	r31, 0x024E	; 0x80024e <ptr_USART_send+0x1>
- 64c:	09 95       	icall
+ 66c:	e0 91 4c 02 	lds	r30, 0x024C	; 0x80024c <ptr_USART_send>
+ 670:	f0 91 4d 02 	lds	r31, 0x024D	; 0x80024d <ptr_USART_send+0x1>
+ 674:	09 95       	icall
 	}
 
- 64e:	ff 91       	pop	r31
- 650:	ef 91       	pop	r30
- 652:	bf 91       	pop	r27
- 654:	af 91       	pop	r26
- 656:	9f 91       	pop	r25
- 658:	8f 91       	pop	r24
- 65a:	7f 91       	pop	r23
- 65c:	6f 91       	pop	r22
- 65e:	5f 91       	pop	r21
- 660:	4f 91       	pop	r20
- 662:	3f 91       	pop	r19
- 664:	2f 91       	pop	r18
- 666:	0f 90       	pop	r0
- 668:	0f be       	out	0x3f, r0	; 63
- 66a:	0f 90       	pop	r0
- 66c:	1f 90       	pop	r1
- 66e:	18 95       	reti
+ 676:	ff 91       	pop	r31
+ 678:	ef 91       	pop	r30
+ 67a:	bf 91       	pop	r27
+ 67c:	af 91       	pop	r26
+ 67e:	9f 91       	pop	r25
+ 680:	8f 91       	pop	r24
+ 682:	7f 91       	pop	r23
+ 684:	6f 91       	pop	r22
+ 686:	5f 91       	pop	r21
+ 688:	4f 91       	pop	r20
+ 68a:	3f 91       	pop	r19
+ 68c:	2f 91       	pop	r18
+ 68e:	0f 90       	pop	r0
+ 690:	0f be       	out	0x3f, r0	; 63
+ 692:	0f 90       	pop	r0
+ 694:	1f 90       	pop	r1
+ 696:	18 95       	reti
 
-00000670 <bcm_send_done>:
+00000698 <bcm_send_done>:
 		  {
 			  enu_bcm_status_return = CHANNEL_ERROR;
 		  }	
 		}
 		return enu_bcm_status_return;
 }
- 670:	80 91 50 02 	lds	r24, 0x0250	; 0x800250 <gl_bcm_send_done>
- 674:	8f 5f       	subi	r24, 0xFF	; 255
- 676:	80 93 50 02 	sts	0x0250, r24	; 0x800250 <gl_bcm_send_done>
- 67a:	08 95       	ret
+ 698:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <gl_bcm_send_done>
+ 69c:	8f 5f       	subi	r24, 0xFF	; 255
+ 69e:	80 93 4f 02 	sts	0x024F, r24	; 0x80024f <gl_bcm_send_done>
+ 6a2:	08 95       	ret
 
-0000067c <bcm_recieve_done>:
- 67c:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <gl_bcm_recieve_done>
- 680:	8f 5f       	subi	r24, 0xFF	; 255
- 682:	80 93 4f 02 	sts	0x024F, r24	; 0x80024f <gl_bcm_recieve_done>
- 686:	08 95       	ret
+000006a4 <bcm_recieve_done>:
+ 6a4:	80 91 4e 02 	lds	r24, 0x024E	; 0x80024e <gl_bcm_recieve_done>
+ 6a8:	8f 5f       	subi	r24, 0xFF	; 255
+ 6aa:	80 93 4e 02 	sts	0x024E, r24	; 0x80024e <gl_bcm_recieve_done>
+ 6ae:	08 95       	ret
 
-00000688 <bcm_init>:
- 688:	0f 93       	push	r16
- 68a:	1f 93       	push	r17
- 68c:	cf 93       	push	r28
- 68e:	00 97       	sbiw	r24, 0x00	; 0
- 690:	99 f1       	breq	.+102    	; 0x6f8 <bcm_init+0x70>
- 692:	c0 e0       	ldi	r28, 0x00	; 0
- 694:	2b c0       	rjmp	.+86     	; 0x6ec <bcm_init+0x64>
- 696:	dc 01       	movw	r26, r24
- 698:	11 96       	adiw	r26, 0x01	; 1
- 69a:	6c 91       	ld	r22, X
- 69c:	4c 2f       	mov	r20, r28
- 69e:	50 e0       	ldi	r21, 0x00	; 0
- 6a0:	fa 01       	movw	r30, r20
- 6a2:	ee 0f       	add	r30, r30
- 6a4:	ff 1f       	adc	r31, r31
- 6a6:	9a 01       	movw	r18, r20
- 6a8:	22 0f       	add	r18, r18
- 6aa:	33 1f       	adc	r19, r19
- 6ac:	22 0f       	add	r18, r18
- 6ae:	33 1f       	adc	r19, r19
- 6b0:	22 0f       	add	r18, r18
- 6b2:	33 1f       	adc	r19, r19
- 6b4:	e2 0f       	add	r30, r18
- 6b6:	f3 1f       	adc	r31, r19
- 6b8:	e1 5a       	subi	r30, 0xA1	; 161
- 6ba:	fe 4f       	sbci	r31, 0xFE	; 254
- 6bc:	21 81       	ldd	r18, Z+1	; 0x01
- 6be:	62 13       	cpse	r22, r18
- 6c0:	14 c0       	rjmp	.+40     	; 0x6ea <bcm_init+0x62>
- 6c2:	8f 01       	movw	r16, r30
- 6c4:	02 80       	ldd	r0, Z+2	; 0x02
- 6c6:	f3 81       	ldd	r31, Z+3	; 0x03
- 6c8:	e0 2d       	mov	r30, r0
- 6ca:	86 2f       	mov	r24, r22
- 6cc:	09 95       	icall
- 6ce:	f8 01       	movw	r30, r16
- 6d0:	00 85       	ldd	r16, Z+8	; 0x08
- 6d2:	11 85       	ldd	r17, Z+9	; 0x09
- 6d4:	68 e3       	ldi	r22, 0x38	; 56
- 6d6:	73 e0       	ldi	r23, 0x03	; 3
- 6d8:	80 e0       	ldi	r24, 0x00	; 0
- 6da:	f8 01       	movw	r30, r16
- 6dc:	09 95       	icall
- 6de:	6e e3       	ldi	r22, 0x3E	; 62
- 6e0:	73 e0       	ldi	r23, 0x03	; 3
- 6e2:	81 e0       	ldi	r24, 0x01	; 1
- 6e4:	f8 01       	movw	r30, r16
- 6e6:	09 95       	icall
- 6e8:	03 c0       	rjmp	.+6      	; 0x6f0 <bcm_init+0x68>
- 6ea:	cf 5f       	subi	r28, 0xFF	; 255
- 6ec:	c2 30       	cpi	r28, 0x02	; 2
- 6ee:	98 f2       	brcs	.-90     	; 0x696 <bcm_init+0xe>
- 6f0:	c2 30       	cpi	r28, 0x02	; 2
- 6f2:	21 f0       	breq	.+8      	; 0x6fc <bcm_init+0x74>
- 6f4:	80 e0       	ldi	r24, 0x00	; 0
- 6f6:	03 c0       	rjmp	.+6      	; 0x6fe <bcm_init+0x76>
- 6f8:	82 e0       	ldi	r24, 0x02	; 2
- 6fa:	01 c0       	rjmp	.+2      	; 0x6fe <bcm_init+0x76>
- 6fc:	81 e0       	ldi	r24, 0x01	; 1
- 6fe:	cf 91       	pop	r28
- 700:	1f 91       	pop	r17
- 702:	0f 91       	pop	r16
- 704:	08 95       	ret
+000006b0 <bcm_init>:
+ 6b0:	0f 93       	push	r16
+ 6b2:	1f 93       	push	r17
+ 6b4:	cf 93       	push	r28
+ 6b6:	00 97       	sbiw	r24, 0x00	; 0
+ 6b8:	99 f1       	breq	.+102    	; 0x720 <bcm_init+0x70>
+ 6ba:	c0 e0       	ldi	r28, 0x00	; 0
+ 6bc:	2b c0       	rjmp	.+86     	; 0x714 <bcm_init+0x64>
+ 6be:	dc 01       	movw	r26, r24
+ 6c0:	11 96       	adiw	r26, 0x01	; 1
+ 6c2:	6c 91       	ld	r22, X
+ 6c4:	4c 2f       	mov	r20, r28
+ 6c6:	50 e0       	ldi	r21, 0x00	; 0
+ 6c8:	fa 01       	movw	r30, r20
+ 6ca:	ee 0f       	add	r30, r30
+ 6cc:	ff 1f       	adc	r31, r31
+ 6ce:	9a 01       	movw	r18, r20
+ 6d0:	22 0f       	add	r18, r18
+ 6d2:	33 1f       	adc	r19, r19
+ 6d4:	22 0f       	add	r18, r18
+ 6d6:	33 1f       	adc	r19, r19
+ 6d8:	22 0f       	add	r18, r18
+ 6da:	33 1f       	adc	r19, r19
+ 6dc:	e2 0f       	add	r30, r18
+ 6de:	f3 1f       	adc	r31, r19
+ 6e0:	e2 5a       	subi	r30, 0xA2	; 162
+ 6e2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 6e4:	21 81       	ldd	r18, Z+1	; 0x01
+ 6e6:	62 13       	cpse	r22, r18
+ 6e8:	14 c0       	rjmp	.+40     	; 0x712 <bcm_init+0x62>
+ 6ea:	8f 01       	movw	r16, r30
+ 6ec:	02 80       	ldd	r0, Z+2	; 0x02
+ 6ee:	f3 81       	ldd	r31, Z+3	; 0x03
+ 6f0:	e0 2d       	mov	r30, r0
+ 6f2:	86 2f       	mov	r24, r22
+ 6f4:	09 95       	icall
+ 6f6:	f8 01       	movw	r30, r16
+ 6f8:	00 85       	ldd	r16, Z+8	; 0x08
+ 6fa:	11 85       	ldd	r17, Z+9	; 0x09
+ 6fc:	6c e4       	ldi	r22, 0x4C	; 76
+ 6fe:	73 e0       	ldi	r23, 0x03	; 3
+ 700:	80 e0       	ldi	r24, 0x00	; 0
+ 702:	f8 01       	movw	r30, r16
+ 704:	09 95       	icall
+ 706:	62 e5       	ldi	r22, 0x52	; 82
+ 708:	73 e0       	ldi	r23, 0x03	; 3
+ 70a:	81 e0       	ldi	r24, 0x01	; 1
+ 70c:	f8 01       	movw	r30, r16
+ 70e:	09 95       	icall
+ 710:	03 c0       	rjmp	.+6      	; 0x718 <bcm_init+0x68>
+ 712:	cf 5f       	subi	r28, 0xFF	; 255
+ 714:	c2 30       	cpi	r28, 0x02	; 2
+ 716:	98 f2       	brcs	.-90     	; 0x6be <bcm_init+0xe>
+ 718:	c2 30       	cpi	r28, 0x02	; 2
+ 71a:	21 f0       	breq	.+8      	; 0x724 <bcm_init+0x74>
+ 71c:	80 e0       	ldi	r24, 0x00	; 0
+ 71e:	03 c0       	rjmp	.+6      	; 0x726 <bcm_init+0x76>
+ 720:	82 e0       	ldi	r24, 0x02	; 2
+ 722:	01 c0       	rjmp	.+2      	; 0x726 <bcm_init+0x76>
+ 724:	81 e0       	ldi	r24, 0x01	; 1
+ 726:	cf 91       	pop	r28
+ 728:	1f 91       	pop	r17
+ 72a:	0f 91       	pop	r16
+ 72c:	08 95       	ret
 
-00000706 <bcm_send_n>:
+0000072e <bcm_send_n>:
 
 enu_bcm_status_t bcm_send_n (str_bcm_instance_t * ptr_str_bcm_instance ,uint8_t *uint8_arg_bytes,uint8_t uint8_arg_size)
 {
- 706:	0f 93       	push	r16
- 708:	1f 93       	push	r17
- 70a:	cf 93       	push	r28
- 70c:	8c 01       	movw	r16, r24
+ 72e:	0f 93       	push	r16
+ 730:	1f 93       	push	r17
+ 732:	cf 93       	push	r28
+ 734:	8c 01       	movw	r16, r24
 	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
 	uint8_t uint8_loc_counter = 0 ;
 	for(uint8_loc_counter = 0 ; uint8_loc_counter < BCM_INSTANCES ; uint8_loc_counter ++)
- 70e:	c0 e0       	ldi	r28, 0x00	; 0
- 710:	1d c0       	rjmp	.+58     	; 0x74c <bcm_send_n+0x46>
+ 736:	c0 e0       	ldi	r28, 0x00	; 0
+ 738:	1d c0       	rjmp	.+58     	; 0x774 <bcm_send_n+0x46>
 	{
 		if(ptr_str_bcm_instance->en_bcm_channel == str_bcm_instance[uint8_loc_counter].en_bcm_channel)
- 712:	f8 01       	movw	r30, r16
- 714:	51 81       	ldd	r21, Z+1	; 0x01
- 716:	ac 2f       	mov	r26, r28
- 718:	b0 e0       	ldi	r27, 0x00	; 0
- 71a:	fd 01       	movw	r30, r26
- 71c:	ee 0f       	add	r30, r30
- 71e:	ff 1f       	adc	r31, r31
- 720:	9d 01       	movw	r18, r26
- 722:	22 0f       	add	r18, r18
- 724:	33 1f       	adc	r19, r19
- 726:	22 0f       	add	r18, r18
- 728:	33 1f       	adc	r19, r19
- 72a:	22 0f       	add	r18, r18
- 72c:	33 1f       	adc	r19, r19
- 72e:	e2 0f       	add	r30, r18
- 730:	f3 1f       	adc	r31, r19
- 732:	e1 5a       	subi	r30, 0xA1	; 161
- 734:	fe 4f       	sbci	r31, 0xFE	; 254
- 736:	91 81       	ldd	r25, Z+1	; 0x01
- 738:	59 13       	cpse	r21, r25
- 73a:	07 c0       	rjmp	.+14     	; 0x74a <bcm_send_n+0x44>
- 73c:	cb 01       	movw	r24, r22
+ 73a:	f8 01       	movw	r30, r16
+ 73c:	51 81       	ldd	r21, Z+1	; 0x01
+ 73e:	ac 2f       	mov	r26, r28
+ 740:	b0 e0       	ldi	r27, 0x00	; 0
+ 742:	fd 01       	movw	r30, r26
+ 744:	ee 0f       	add	r30, r30
+ 746:	ff 1f       	adc	r31, r31
+ 748:	9d 01       	movw	r18, r26
+ 74a:	22 0f       	add	r18, r18
+ 74c:	33 1f       	adc	r19, r19
+ 74e:	22 0f       	add	r18, r18
+ 750:	33 1f       	adc	r19, r19
+ 752:	22 0f       	add	r18, r18
+ 754:	33 1f       	adc	r19, r19
+ 756:	e2 0f       	add	r30, r18
+ 758:	f3 1f       	adc	r31, r19
+ 75a:	e2 5a       	subi	r30, 0xA2	; 162
+ 75c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 75e:	91 81       	ldd	r25, Z+1	; 0x01
+ 760:	59 13       	cpse	r21, r25
+ 762:	07 c0       	rjmp	.+14     	; 0x772 <bcm_send_n+0x44>
+ 764:	cb 01       	movw	r24, r22
 		{
 			str_bcm_instance[uint8_loc_counter].str_bcm_functions_pointer.ptr_func_send_n(uint8_arg_bytes,uint8_arg_size);
- 73e:	06 80       	ldd	r0, Z+6	; 0x06
- 740:	f7 81       	ldd	r31, Z+7	; 0x07
- 742:	e0 2d       	mov	r30, r0
- 744:	64 2f       	mov	r22, r20
- 746:	09 95       	icall
+ 766:	06 80       	ldd	r0, Z+6	; 0x06
+ 768:	f7 81       	ldd	r31, Z+7	; 0x07
+ 76a:	e0 2d       	mov	r30, r0
+ 76c:	64 2f       	mov	r22, r20
+ 76e:	09 95       	icall
 			break;
- 748:	03 c0       	rjmp	.+6      	; 0x750 <bcm_send_n+0x4a>
+ 770:	03 c0       	rjmp	.+6      	; 0x778 <bcm_send_n+0x4a>
 
 enu_bcm_status_t bcm_send_n (str_bcm_instance_t * ptr_str_bcm_instance ,uint8_t *uint8_arg_bytes,uint8_t uint8_arg_size)
 {
 	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
 	uint8_t uint8_loc_counter = 0 ;
 	for(uint8_loc_counter = 0 ; uint8_loc_counter < BCM_INSTANCES ; uint8_loc_counter ++)
- 74a:	cf 5f       	subi	r28, 0xFF	; 255
- 74c:	c2 30       	cpi	r28, 0x02	; 2
- 74e:	08 f3       	brcs	.-62     	; 0x712 <bcm_send_n+0xc>
+ 772:	cf 5f       	subi	r28, 0xFF	; 255
+ 774:	c2 30       	cpi	r28, 0x02	; 2
+ 776:	08 f3       	brcs	.-62     	; 0x73a <bcm_send_n+0xc>
 			str_bcm_instance[uint8_loc_counter].str_bcm_functions_pointer.ptr_func_send_n(uint8_arg_bytes,uint8_arg_size);
 			break;
 		}
 	}
 	
 	if(uint8_loc_counter == BCM_INSTANCES)
- 750:	c2 30       	cpi	r28, 0x02	; 2
- 752:	11 f0       	breq	.+4      	; 0x758 <bcm_send_n+0x52>
+ 778:	c2 30       	cpi	r28, 0x02	; 2
+ 77a:	11 f0       	breq	.+4      	; 0x780 <bcm_send_n+0x52>
 		return enu_bcm_status_return;
 }
 
 enu_bcm_status_t bcm_send_n (str_bcm_instance_t * ptr_str_bcm_instance ,uint8_t *uint8_arg_bytes,uint8_t uint8_arg_size)
 {
 	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
- 754:	80 e0       	ldi	r24, 0x00	; 0
- 756:	01 c0       	rjmp	.+2      	; 0x75a <bcm_send_n+0x54>
+ 77c:	80 e0       	ldi	r24, 0x00	; 0
+ 77e:	01 c0       	rjmp	.+2      	; 0x782 <bcm_send_n+0x54>
 		}
 	}
 	
 	if(uint8_loc_counter == BCM_INSTANCES)
 	{
 		enu_bcm_status_return = CHANNEL_ERROR;
- 758:	81 e0       	ldi	r24, 0x01	; 1
+ 780:	81 e0       	ldi	r24, 0x01	; 1
 	}
 	return enu_bcm_status_return;
 
 }
- 75a:	cf 91       	pop	r28
- 75c:	1f 91       	pop	r17
- 75e:	0f 91       	pop	r16
- 760:	08 95       	ret
-
-00000762 <bcm_dispatcher>:
-
-enu_bcm_status_t bcm_dispatcher (str_bcm_instance_t * ptr_str_bcm_instance_t)
-{
-	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
-	
-	if(ptr_str_bcm_instance_t == NULL)
- 762:	89 2b       	or	r24, r25
- 764:	81 f0       	breq	.+32     	; 0x786 <bcm_dispatcher+0x24>
-	{
-		 enu_bcm_status_return = NULL_POINTER;
-	}
-	else if(gl_bcm_send_done == 1)
- 766:	80 91 50 02 	lds	r24, 0x0250	; 0x800250 <gl_bcm_send_done>
- 76a:	81 30       	cpi	r24, 0x01	; 1
- 76c:	21 f4       	brne	.+8      	; 0x776 <bcm_dispatcher+0x14>
-	{
-		enu_bcm_status_return = SEND_OPERATION_DONE;
-		gl_bcm_send_done = 0;
- 76e:	10 92 50 02 	sts	0x0250, r1	; 0x800250 <gl_bcm_send_done>
-	{
-		 enu_bcm_status_return = NULL_POINTER;
-	}
-	else if(gl_bcm_send_done == 1)
-	{
-		enu_bcm_status_return = SEND_OPERATION_DONE;
- 772:	83 e0       	ldi	r24, 0x03	; 3
- 774:	08 95       	ret
-		gl_bcm_send_done = 0;
-	}
-	
-	else if(gl_bcm_recieve_done == 1)
- 776:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <gl_bcm_recieve_done>
- 77a:	81 30       	cpi	r24, 0x01	; 1
- 77c:	31 f4       	brne	.+12     	; 0x78a <bcm_dispatcher+0x28>
-	{
-		enu_bcm_status_return = REC_OPERATION_DONE;
-		gl_bcm_recieve_done = 0;
- 77e:	10 92 4f 02 	sts	0x024F, r1	; 0x80024f <gl_bcm_recieve_done>
-		gl_bcm_send_done = 0;
-	}
-	
-	else if(gl_bcm_recieve_done == 1)
-	{
-		enu_bcm_status_return = REC_OPERATION_DONE;
- 782:	84 e0       	ldi	r24, 0x04	; 4
- 784:	08 95       	ret
-{
-	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
-	
-	if(ptr_str_bcm_instance_t == NULL)
-	{
-		 enu_bcm_status_return = NULL_POINTER;
- 786:	82 e0       	ldi	r24, 0x02	; 2
+ 782:	cf 91       	pop	r28
+ 784:	1f 91       	pop	r17
+ 786:	0f 91       	pop	r16
  788:	08 95       	ret
 
+0000078a <bcm_dispatcher>:
+
+enu_bcm_status_t bcm_dispatcher (str_bcm_instance_t * ptr_str_bcm_instance_t)
+{
+	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
+	
+	if(ptr_str_bcm_instance_t == NULL)
+ 78a:	89 2b       	or	r24, r25
+ 78c:	81 f0       	breq	.+32     	; 0x7ae <bcm_dispatcher+0x24>
+	{
+		 enu_bcm_status_return = NULL_POINTER;
+	}
+	else if(gl_bcm_send_done == 1)
+ 78e:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <gl_bcm_send_done>
+ 792:	81 30       	cpi	r24, 0x01	; 1
+ 794:	21 f4       	brne	.+8      	; 0x79e <bcm_dispatcher+0x14>
+	{
+		enu_bcm_status_return = SEND_OPERATION_DONE;
+		gl_bcm_send_done = 0;
+ 796:	10 92 4f 02 	sts	0x024F, r1	; 0x80024f <gl_bcm_send_done>
+	{
+		 enu_bcm_status_return = NULL_POINTER;
+	}
+	else if(gl_bcm_send_done == 1)
+	{
+		enu_bcm_status_return = SEND_OPERATION_DONE;
+ 79a:	83 e0       	ldi	r24, 0x03	; 3
+ 79c:	08 95       	ret
+		gl_bcm_send_done = 0;
+	}
+	
+	else if(gl_bcm_recieve_done == 1)
+ 79e:	80 91 4e 02 	lds	r24, 0x024E	; 0x80024e <gl_bcm_recieve_done>
+ 7a2:	81 30       	cpi	r24, 0x01	; 1
+ 7a4:	31 f4       	brne	.+12     	; 0x7b2 <bcm_dispatcher+0x28>
+	{
+		enu_bcm_status_return = REC_OPERATION_DONE;
+		gl_bcm_recieve_done = 0;
+ 7a6:	10 92 4e 02 	sts	0x024E, r1	; 0x80024e <gl_bcm_recieve_done>
+		gl_bcm_send_done = 0;
+	}
+	
+	else if(gl_bcm_recieve_done == 1)
+	{
+		enu_bcm_status_return = REC_OPERATION_DONE;
+ 7aa:	84 e0       	ldi	r24, 0x04	; 4
+ 7ac:	08 95       	ret
+{
+	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
+	
+	if(ptr_str_bcm_instance_t == NULL)
+	{
+		 enu_bcm_status_return = NULL_POINTER;
+ 7ae:	82 e0       	ldi	r24, 0x02	; 2
+ 7b0:	08 95       	ret
+
 }
 
 enu_bcm_status_t bcm_dispatcher (str_bcm_instance_t * ptr_str_bcm_instance_t)
 {
 	enu_bcm_status_t enu_bcm_status_return = BCM_OKAY;
- 78a:	80 e0       	ldi	r24, 0x00	; 0
+ 7b2:	80 e0       	ldi	r24, 0x00	; 0
 		enu_bcm_status_return = REC_OPERATION_DONE;
 		gl_bcm_recieve_done = 0;
 	}
 	
 	return enu_bcm_status_return;
 }
- 78c:	08 95       	ret
+ 7b4:	08 95       	ret
 
-0000078e <strcmp>:
- 78e:	fb 01       	movw	r30, r22
- 790:	dc 01       	movw	r26, r24
- 792:	8d 91       	ld	r24, X+
- 794:	01 90       	ld	r0, Z+
- 796:	80 19       	sub	r24, r0
- 798:	01 10       	cpse	r0, r1
- 79a:	d9 f3       	breq	.-10     	; 0x792 <strcmp+0x4>
- 79c:	99 0b       	sbc	r25, r25
- 79e:	08 95       	ret
+000007b6 <strcmp>:
+ 7b6:	fb 01       	movw	r30, r22
+ 7b8:	dc 01       	movw	r26, r24
+ 7ba:	8d 91       	ld	r24, X+
+ 7bc:	01 90       	ld	r0, Z+
+ 7be:	80 19       	sub	r24, r0
+ 7c0:	01 10       	cpse	r0, r1
+ 7c2:	d9 f3       	breq	.-10     	; 0x7ba <strcmp+0x4>
+ 7c4:	99 0b       	sbc	r25, r25
+ 7c6:	08 95       	ret
 
-000007a0 <_exit>:
- 7a0:	f8 94       	cli
+000007c8 <_exit>:
+ 7c8:	f8 94       	cli
 
-000007a2 <__stop_program>:
- 7a2:	ff cf       	rjmp	.-2      	; 0x7a2 <__stop_program>
+000007ca <__stop_program>:
+ 7ca:	ff cf       	rjmp	.-2      	; 0x7ca <__stop_program>

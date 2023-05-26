@@ -5,7 +5,7 @@
 *  Author: Sharpel
 */
 
-
+#include <stdlib.h>
 
 #include "../../COMMON/vect_table.h"
 #include "../../COMMON/bit_math.h"
@@ -70,9 +70,8 @@ str_usart_tasks_queue_t  str_gl_usart_tasks_queue =
 
 vuint8_t  gl_recieve_arr[TASKS_MAX_SIZE]="";
 vuint8_t  gl_recieve_index = 0;
-vuint8_t  gl_recieve_size = 21;
-//vuint8_t gl_isSent = 0;
-//vuint8_t gl_isReceive = 0;
+vuint8_t  gl_recieve_size = NULL;
+
 #endif
 static en_usart_error_code_t insert_queue(uint8_t uint8_arg_byte)
 {
@@ -369,7 +368,7 @@ en_usart_error_code_t USART_send_n_bytes(uint8_t *uint8_arg_arr_bytes,uint8_t ui
 	else
 	{
 		// set size in the queue
-		//insert_queue((char)uint8_arg_arr_size);
+		insert_queue(uint8_arg_arr_size);
 		while(uint8_loc_counter < uint8_arg_arr_size)
 		{
 			en_usart_error_code_return = insert_queue(uint8_arg_arr_bytes[uint8_loc_counter]);
@@ -438,16 +437,29 @@ en_usart_error_code_t USART_recieve_n_bytes(uint8_t *uint8_arg_arr_bytes,uint8_t
 ISR(USART_RXC_INT)
 {
 	
-
-	if(gl_recieve_index < gl_recieve_size)
+    if(gl_recieve_size == NULL)
+	{
+		// convert size to integer number
+		gl_recieve_size = UDR;
+		if(gl_recieve_size < '0' || gl_recieve_size > '9')
+		{
+			//nothing
+		}
+		else
+		{
+			gl_recieve_size-='0';
+		}
+	}
+	else if(gl_recieve_index < gl_recieve_size)
 	{
 		gl_recieve_arr[gl_recieve_index] = UDR ;
 		gl_recieve_index++;
 	}
 	 
-	if(gl_recieve_index == gl_recieve_size)
+	if(gl_recieve_index == gl_recieve_size && gl_recieve_size != NULL)
 	{
 		 gl_recieve_index = 0;
+		 gl_recieve_size = NULL;
 		 ptr_USART_recieve();
 		
 	} 

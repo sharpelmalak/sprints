@@ -27,8 +27,8 @@ str_led_config_t gl_error_led =
 };
 enu_app_states_t gl_enu_app_state = IDLE ;
 str_bcm_instance_t gl_str_bcm_instance_app = {.en_bcm_channel=CHANNEL_0};
-uint8_t gl_rec_string_from_dest[]="CONFIRM BCM OPERATING";
-uint8_t gl_send_string_to_dest []="BCM OPERATING";
+uint8_t gl_rec_string_from_dest[TASKS_MAX_SIZE]="CONFIRM BCM OPERATING";
+uint8_t gl_send_string_to_dest [TASKS_MAX_SIZE]="BCM OPERATING";
 
 
 // variable return for bcm

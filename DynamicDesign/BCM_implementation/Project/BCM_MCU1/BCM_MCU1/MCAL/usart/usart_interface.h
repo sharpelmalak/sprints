@@ -12,8 +12,6 @@
 #include "../../COMMON/std_types.h"
 #include "usart_config.h"
 
-
-
 extern const str_usart_configs_t  str_gl_usart_arr_configs[USART_CHANNELS];
 
 typedef enum
