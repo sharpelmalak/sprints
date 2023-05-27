@@ -25,6 +25,15 @@ typedef enum
 }en_usart_error_code_t;
 
 
+typedef struct
+{
+	uint8_t uint8_arr_tasks[TASKS_MAX_SIZE];
+	sint8_t sint_front_queue;
+	sint8_t sint_rear_queue;
+}str_usart_tasks_queue_t;
+
+
+
 /*
 Description : This function inits Usart to operate on specfic mode look at usart.configs
 ARGS        : channel id

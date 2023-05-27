@@ -15,7 +15,7 @@ const str_bcm_instance_t str_bcm_instance[BCM_INSTANCES] =
 		.str_bcm_functions_pointer.ptr_func_init    = USART_init,
 		.str_bcm_functions_pointer.ptr_func_send    = USART_send_byte,
 		.str_bcm_functions_pointer.ptr_func_send_n  = USART_send_n_bytes,
-		.str_bcm_functions_pointer.ptr_func_setCall = USART_setCallBack,
+		.str_bcm_functions_pointer.ptr_func_setCall = USART_setCallBack
 		
 	},
 	{

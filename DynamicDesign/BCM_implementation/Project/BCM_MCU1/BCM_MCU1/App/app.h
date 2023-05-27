@@ -18,11 +18,15 @@
 typedef enum
 {
 	IDLE = 0 ,
+	SEND_DONE,
+	RECEIVE_DONE,
 	BLOCKED,
 }enu_app_states_t;
 
 
 extern vuint8_t  gl_recieve_arr[TASKS_MAX_SIZE];
+extern vuint8_t gl_bcm_send_done    ;
+extern vuint8_t gl_bcm_recieve_done ;
 
 
 void app_init(void);

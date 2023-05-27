@@ -58,6 +58,6 @@
 #define URSEL    7
 
 
-
+#define EMPTY_POSITOIN  -1
 
 #endif /* USART_PRIVATE_H_ */
